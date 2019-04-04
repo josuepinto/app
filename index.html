@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/page.css" type="text/css" />
+	<script type="text/javascript" src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+	<script type="text/javascript">
+
+    $(document).ready(function(){
+    	$("#color").change(function(){
+
+    		$("#camiseta").attr("src",$( "#color option:selected" ).val());
+    		$("#camiseta").attr("src",$( "#color option:selected" ).val());
+    		$("#camiseta").attr("src",$( "#color option:selected" ).val());
+    		$("#camiseta").attr("src",$( "#color option:selected" ).val());
+    		$("#camiseta").attr("src",$( "#color option:selected" ).val());
+    		$("#camiseta").attr("src",$( "#color option:selected" ).val());
+    		$("#camiseta").attr("src",$( "#color option:selected" ).val());
+
+            /*colorPolera = $( "#color option:selected" ).text();
+            switch (colorPolera) {
+                                case 'blanca':
+                                        $("#camiseta").attr("src","img/camiseta_blanca.png");
+                                        break
+                                case 'amarilla':
+                                       $("#camiseta").attr("src","img/camiseta_amarilla.png");
+                                        break
+                                case 'naranja':
+                                        $("#camiseta").attr("src","img/camiseta_naranja.png");
+                                        break
+                                 case 'roja':
+                                        $("#camiseta").attr("src","img/camiseta_roja.png");
+                                        break
+                                 case 'verde':
+                                        $("#camiseta").attr("src","img/camiseta_verde.png");
+                                        break
+                                  case 'azul':
+                                        $("#camiseta").attr("src","img/camiseta_azul.png");
+                                        break
+                                 case 'negra':
+                                       $("#camiseta").attr("src","img/camiseta_negra.png");
+                                        break
+
+                                   }*/
+
+          })
+    	$("#enviar").click(function(){
+    		var nombreapellido = $("#nombre").val();
+    		var direccioncliente= $("#direccion").val();
+    		if (nombreapellido=="" || direccioncliente=="") {
+    			alert("faltan los dos nombre y direccion")
+    			document.getElementById("nombre").style.background="yellow"
+    			document.getElementById("direccion").style.background="yellow"
+
+    			return false
+    		}else{
+    			document.getElementById("nombre").style.background="white"
+    			document.getElementById("direccion").style.background="white"
+    		}
+
+    		 cantidadPolera=$("[type=number]").val();
+			var medida=($('input:radio[name=talla]:checked').val());
+		   colorPolera = $( "#color option:selected" ).text();
+		    switch (colorPolera) {
+                                case 'blanca':
+                                        var precio = 10*cantidadPolera
+
+                                        break
+                                case 'amarilla':
+                                        var precio = 12*cantidadPolera
+
+                                        break
+                                case 'naranja':
+                                        var precio = 12*cantidadPolera
+
+                                        break
+                                 case 'roja':
+                                        var precio = 12*cantidadPolera
+
+                                        break
+                                 case 'verde':
+                                        var precio = 12*cantidadPolera
+
+                                        break
+                                  case 'azul':
+                                        var precio = 12*cantidadPolera
+
+                                        break
+                                 case 'negra':
+                                        var precio = 12*cantidadPolera
+
+                                        break
+                               default:
+                                        alert('polera no valida')
+                                        var resultado = 0
+                              }
+
+
+
+                  var mensaje=nombreapellido+" quiere "+cantidadPolera+" polera talla "+medida+" color "+colorPolera+" en la direccion "+direccioncliente+" y serian "+precio+" euros."
+
+
+
+    		            $( "#resumen" ).text( mensaje );
+    	         })
+
+
+           })
+
+
+
+
+
+
+ </script>
+</head>
+<body>
+	<h1>Tienda online</h1>
+	<form action="http://www.google.com/search" method="get">
+		<div class="buscador">
+
+
+		Buscar en la web:
+		 <input type="search" name="q">
+		 <input type="submit" value="Buscar">
+	 </div>
+	 <div class="examinar">
+	 	<input type="file" name="adjunto" accept=".pdf,.jpg,.png" multiple>
+	 </div>
+ </form>
+    <div class='contenedor'>
+        <section>
+            <div class='info1'>
+                <form name='formulario' id="cont">
+                    <label>Nombre y apellidos</label>
+                    <input type='text' id='nombre'><br><br>
+                    <label>Dirección</label>
+                    <input type='text' id='direccion'><br><br>
+                    <label>Cantidad</label>
+                    <input type='number' id='cantidad' value='1' min='1'><br><br>
+                    <label>Seleccione talla:</label>
+                    XS<input type='radio' name='talla' checked value='XS'>
+                    S<input type='radio' name='talla' value='S'>
+                    M<input type='radio' name='talla' value='M'>
+                    L<input type='radio' name='talla' value='L'>
+                    XL<input type='radio' name='talla' value='XL'><br><br>
+                    <label>Seleccione color:</label>
+                    <select id='color'>
+                        <option selected value="img/camiseta_blanca.png">blanca</option>
+                        <option value="img/camiseta_amarilla.png">amarilla</option>
+                        <option value="img/camiseta_naranja.png">naranja</option>
+                        <option value="img/camiseta_roja.png">roja</option>
+                        <option value="img/camiseta_verde.png">verde</option>
+                        <option value="img/camiseta_azul.png">azul</option>
+                        <option value="img/camiseta_negra.png">negra</option>
+                    </select><br><br>
+                    <input type='button' id='enviar' value='Enviar'>          <input type="reset" name="name" value="reset"><br><br>
+
+                    <div id='resumen'></div>
+                </form>
+            </div>
+            <div id='info2'>
+                <img id='camiseta' src='img/camiseta_blanca.png'>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
